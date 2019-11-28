@@ -20,15 +20,15 @@
     <!--	</select>-->
 
     <!--写别名的方式-->
-    <select id="findAll" resultType="com.zxy.pojo.User">
+    <select id="findAll" resultType="User">
         select
          	id as userId,
          	username as userName,
-         	address as userAddress,
          	sex as userSex,
-         	birthday as userBirthday
+         	birthday as userBirthday,
+         	address as userAddress
          from
-         user
+            user
     </select>
 
 
@@ -39,19 +39,19 @@
             select last_insert_id();
         </selectKey>
         INSERT INTO USER (
-        id as userId,
-        username as userName,
-        address as userAddress,
-        sex as userSex,
-        birthday as userBirthday
+            username,
+            address,
+            sex,
+            birthday
         )
         VALUES
         (
-        #{userName},
-        #{userAddress},
-        #{userSex},
-        #{userBirthday}
+            #{userName},
+            #{userAddress},
+            #{userSex},
+            #{userBirthday}
         )
+
     </insert>
     <!-- 更新用户-->
     <update id="updateUser" parameterType="com.zxy.pojo.User">
@@ -79,25 +79,25 @@
              sex as userSex,
              birthday as userBirthday
 		from
-		user
+		    user
 		where
 		    id=#{uid}
 	</select>
 
     <!--根据姓名模糊查询用户信息-->
-    <select id="findByName" parameterType="string" resultType="com.zxy.pojo.User">
+    <select id="findByName" parameterType="string" resultType="User">
         select
-        id as userId,
-        username as userName,
-        address as userAddress,
-        sex as userSex,
-        birthday as userBirthday
+             id as userId,
+             username as userName,
+             address as userAddress,
+             sex as userSex,
+             birthday as userBirthday
         from
-        user
+            user
         where
-        username
+            username
         like
-        #{name1}
+            #{name1}
         <!-- select * from user where username like '%${value}%'-->
     </select>
 
