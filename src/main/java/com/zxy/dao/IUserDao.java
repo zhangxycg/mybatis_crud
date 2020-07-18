@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * @Description: 用户的持久层接口
+ * @Description: 用户 的持久层接口
  * @Author: zhangxy
  * @Date: Created in 2019/11/24
  * @Modified By:
